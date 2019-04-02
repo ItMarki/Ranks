@@ -114,21 +114,21 @@ function gameTick() {
 		}
 	}
 	if (tab=='money') {
-		updateElement('money','You have '+formatMoney(player.money)+'.')
-		updateElement('exchange1','Exchange '+format(1e9)+' to 1 cent')
-		updateElement('exchange2','Exchange 1 cent to '+format(1e9))
-		updateElement('gen1','Generate '+format(1e7)+'/s<br>'+player.gens[0]+'x<br>'+formatMoney(costs.money[0]))
-		updateElement('gen2','Generate '+format(1e8)+'/s<br>'+player.gens[1]+'x<br>'+formatMoney(costs.money[1]))
-		updateElement('gen3','Generate '+format(1e9)+'/s<br>'+player.gens[2]+'x<br>'+formatMoney(costs.money[2]))
+		updateElement('money','你擁有'+formatMoney(player.money)+'。')
+		updateElement('exchange1','將'+format(1e9)+'交換成1分錢')
+		updateElement('exchange2','將1分錢交換成'+format(1e9))
+		updateElement('gen1','生產'+format(1e7)+'/s<br>'+player.gens[0]+'x<br>'+formatMoney(costs.money[0]))
+		updateElement('gen2','生產'+format(1e8)+'/s<br>'+player.gens[1]+'x<br>'+formatMoney(costs.money[1]))
+		updateElement('gen3','生產'+format(1e9)+'/s<br>'+player.gens[2]+'x<br>'+formatMoney(costs.money[2]))
 		if (player.rank>5) {
 			showElement('coalsection','inline-block')
-			updateElement('coal','You have '+format(player.coal)+' coal.')
-			updateElement('genpower','Generator power: '+format(player.genpower,2,0,false)+'x')
-			updateElement('fuel','Fuel: '+format(player.fuel,1,0,false))
+			updateElement('coal','你擁有'+format(player.coal)+'煤炭。')
+			updateElement('genpower','生產器力量: '+format(player.genpower,2,0,false)+'x')
+			updateElement('fuel','燃料: '+format(player.fuel,1,0,false))
 			if (player.rank>6) {
 				showElement('upgsection','inline-block')
-				updateElement('genpowerUpg','Upgrade gen power<br>'+player.genpower+'x<br>Cost: '+formatMoney(costs.money[3]))
-				updateElement('fuelUpg','Increase fuel efficient<br>'+player.fuelefficent+'x<br>Cost: '+formatMoney(costs.money[4]))
+				updateElement('genpowerUpg','升級生產器力量<br>'+player.genpower+'x<br>成本: '+formatMoney(costs.money[3]))
+				updateElement('fuelUpg','增加燃料效率<br>'+player.fuelefficent+'x<br>成本: '+formatMoney(costs.money[4]))
 			} else {
 				hideElement('upgsection')
 			}
