@@ -221,7 +221,7 @@ function getNPS() {
 function updateRankText() {
 	var value='Rank '+player.rank
 	if (rankReqs[player.rank-1]) {
-		value=value+' | Next rank at '
+		value=value+' | 下一級在'
 		nextRank=''
 		for (req in rankReqs[player.rank-1]) {
 			if (nextRank!='') nextRank=nextRank+' & '
@@ -309,9 +309,9 @@ function switchTab(tabName) {
 function save() {
 	try {
 		localStorage.setItem('saveRanks',btoa(JSON.stringify(player)))
-		console.log('Game saved!')
+		console.log('遊戲保存！')
 	} catch (e) {
-		console.log('Well, we tried.')
+		console.log('我們試了。')
 	}
 }
 
@@ -349,9 +349,9 @@ function load(savefile) {
 		savefile.build=player.build
 		
 		player=savefile
-		console.log('Game loaded!')
+		console.log('遊戲加載！')
 	} catch (e) {
-		console.log('Your save failed to load: '+e)
+		console.log('你的存檔加載失敗: '+e)
 	}
 	updateRankText()
 	updateValues()
@@ -365,16 +365,16 @@ function exportSave() {
 }
 
 function importSave() {
-	var input=prompt('Copy and paste in your exported file and press enter.')
+	var input=prompt('複製貼上你導出的存檔，然後按Enter。')
 	if (load(input)) {
 		if (input!=null) {
-			alert('Your save was invalid or caused a game-breaking bug. :(')
+			alert('你的存檔無效或者到主一個破壞遊戲的錯誤。 :(')
 		}
 	}
 }
 
 function reset() {
-	if (confirm('Are you sure to reset your save? You can\'t undo your action!')) {
+	if (confirm('你肯不肯定重置你的存檔？你不能復原這個動作！')) {
 		player.notation=0
 		player.num=0
 		player.totalNum=0
