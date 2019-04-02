@@ -34,7 +34,7 @@ function gameInit() {
 				try {
 					gameTick()
 				} catch (e) {
-					console.log('A game error has been occured: '+e)
+					console.log('發生了一個錯誤: '+e)
 				}
 				tickspeed=(new Date().getTime()-startTime)*0.2+tickspeed*0.8
 				updated=true
@@ -79,19 +79,19 @@ function gameTick() {
 		updateElement('number',format(player.num))
 		if (player.rank>1) {
 			showElement('mult1','table-cell')
-			updateElement('mult1','Increase multiplier<br>'+player.mults[0]+'x<br>Cost: '+format(costs.mults[0]))
+			updateElement('mult1','增加倍數<br>'+player.mults[0]+'x<br>成本: '+format(costs.mults[0]))
 		} else {
 			hideElement('mult1')
 		}
 		if (player.rank>2) {
 			showElement('mult2','table-cell')
-			updateElement('mult2','Increase multiplier<br>'+player.mults[1]+'x<br>Cost: '+format(costs.mults[1]))
+			updateElement('mult2','增加倍數<br>'+player.mults[1]+'x<br>成本: '+format(costs.mults[1]))
 		} else {
 			hideElement('mult2')
 		}
 		if (player.rank>3) {
 			showElement('mult3','table-cell')
-			updateElement('mult3','Increase multiplier<br>'+player.mults[2]+'x<br>Cost: '+format(costs.mults[2]))
+			updateElement('mult3','增加倍數<br>'+player.mults[2]+'x<br>成本: '+format(costs.mults[2]))
 		} else {
 			hideElement('mult3')
 		}
@@ -100,15 +100,15 @@ function gameTick() {
 		updateElement('numberSmall',format(player.num))
 	}
 	if (tab=='options') {
-		updateElement('notation','Notation:<br>'+notationArray[player.notation])
+		updateElement('notation','數據格式:<br>'+notationArray[player.notation])
 	}
 	if (tab=='stats') {
-		updateElement('timePlayed','You have played for '+formatTime(player.timePlayed)+'.')
-		updateElement('totalNumber','You increased the number by '+format(player.totalNum)+' in total.')
-		updateElement('timeRank','You ranked up '+formatTime(player.rankTime)+' ago.')
+		updateElement('timePlayed','你遊玩了'+formatTime(player.timePlayed)+'.')
+		updateElement('totalNumber','你總共增加數字'+format(player.totalNum)+'。')
+		updateElement('timeRank','你在'+formatTime(player.rankTime)+'前升級。')
 		if (player.fuelwasted>0) {
 			showElement('fuelWasted')
-			updateElement('fuelWasted','You wasted '+format(player.fuelwasted,1,0,false)+' fuel.')
+			updateElement('fuelWasted','你浪費了'+format(player.fuelwasted,1,0,false)+'燃料、')
 		} else {
 			hideElement('fuelWasted')
 		}
